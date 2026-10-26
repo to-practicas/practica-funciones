@@ -15,3 +15,11 @@ void Producto::mostrar() const {
               << " S/ " << std::fixed << std::setprecision(2) << std::setw(10) << precio
               << " Cant: " << cantidad << std::endl;
 }
+
+void Producto::setPrecio(double nuevoPrecio) {
+    if (nuevoPrecio >= 0) precio = nuevoPrecio;
+}
+
+void Producto::setCantidad(int nuevaCantidad) {
+    if (nuevaCantidad >= 0) cantidad = nuevaCantidad;
+}
