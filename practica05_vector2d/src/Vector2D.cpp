@@ -1,6 +1,7 @@
 
 #include "Vector2D.h"
 
+#include <cmath>
 #include <iostream>
 
 // ---------------- Gerson ----------------
@@ -16,4 +17,11 @@ void Vector2D::mostrar() const {
 
 Vector2D Vector2D::operator+(const Vector2D& otro) const {
     return Vector2D(x + otro.x, y + otro.y);
+}
+
+// ---------------- Jaime (reto) ----------------
+bool Vector2D::operator==(const Vector2D& otro) const {
+    const double eps = 1e-9;
+    return std::fabs(x - otro.x) < eps &&
+           std::fabs(y - otro.y) < eps;
 }
