@@ -13,3 +13,7 @@ double Vector2D::getY() const { return y; }
 void Vector2D::mostrar() const {
     std::cout << "(" << x << ", " << y << ")" << std::endl;
 }
+
+Vector2D Vector2D::operator+(const Vector2D& otro) const {
+    return Vector2D(x + otro.x, y + otro.y);
+}
