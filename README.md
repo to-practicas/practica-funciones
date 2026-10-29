@@ -1,4 +1,4 @@
-# POO - Funciones en C++
+# Funciones en C++
 
 Repositorio del trabajo en grupo de la práctica **PRAC05 – Funciones en C++**.
 
