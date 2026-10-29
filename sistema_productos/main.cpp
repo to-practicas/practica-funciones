@@ -96,6 +96,7 @@ int main() {
 
             limpiarEntrada();
             cout << "Entrada invalida." << endl;
+            opcion = -1;
             continue;
         }
 
