@@ -2,6 +2,8 @@
 #include "Inventario.h"
 
 #include <iostream>
+#include <algorithm>
+#include <iterator>
 
 void Inventario::agregar(const Producto& p) {
     productos.push_back(p);
@@ -31,4 +33,25 @@ void Inventario::listar() const {
         std::cout << i++ << ". ";
         p.mostrar();
     }
+}
+
+std::vector<Producto> Inventario::filtrarPorPrecio(
+    double min, double max) const {
+
+    std::vector<Producto> resultado;
+
+    // Lambda que captura min y max por valor
+    auto enRango = [min, max](const Producto& p) {
+        return p.getPrecio() >= min &&
+               p.getPrecio() <= max;
+    };
+
+    std::copy_if(
+        productos.begin(),
+        productos.end(),
+        std::back_inserter(resultado),
+        enRango
+    );
+
+    return resultado;
 }
