@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <iterator>
+#include <numeric>
 
 void Inventario::agregar(const Producto& p) {
     productos.push_back(p);
@@ -54,4 +55,15 @@ std::vector<Producto> Inventario::filtrarPorPrecio(
     );
 
     return resultado;
+}
+
+double Inventario::valorTotal() const {
+    return std::accumulate(
+        productos.begin(),
+        productos.end(),
+        0.0,
+        [](double acc, const Producto& p) {
+            return acc + p.getPrecio() * p.getCantidad();
+        }
+    );
 }
